@@ -1,0 +1,389 @@
+@font-face {
+  font-family: News Cycle;
+    src: url('../fonts/NewsCycle-Regular.eot');
+    src: local("News Cycle"), url('../fonts/NewsCycle-Regular.ttf');
+}
+
+@font-face {
+  font-family: Yanone Kaffeesatz;
+    src: url('../fonts/YanoneKaffeesatz-Regular.eot');
+    src: local("Yanone Kaffeesatz"), url('../fonts/YanoneKaffeesatz-Regular.ttf');
+}
+
+sup {font-size:xx-small; vertical-align:super;}
+
+/* body {
+ font: normal 100% 'Droid Sans', arial, sans-serif;
+ line-height: 2em;
+ background: #FFF;
+ color: #000;
+} */
+
+body {
+  font: normal 1em arial, sans-serif;
+  background: #FFF;
+  color: #000;
+}
+
+p {
+  padding: 0 0 16px 0;
+  line-height: 1.7em;
+}
+
+img {
+  border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+  letter-spacing: 0em;
+  padding: 0 0 0.5em 0;
+}
+
+article {
+  color: #006699;
+  font-size: 110%;
+}
+
+secFont {
+  font-size: 120%;
+}
+
+subSecFont {
+  font-size: 110%;
+}
+
+h1, h2, h3 {
+  font: normal 140% 'Droid Sans', arial, sans-serif;
+  margin: 0 0 1em 0;
+  padding: 0 0 0.5em 0;
+}
+
+h2 {
+  color: #006699;
+  font-size: 160%;
+}
+
+h3 {
+  font-size: 140%;
+  padding: 0.5em 0 0 0;
+}
+
+h4, h5, h6 {
+  padding: 0 0 0.5em 0;
+  font: normal 120% 'Droid Sans', arial, sans-serif;
+}
+
+a, a:hover {
+  font-size: 100%;
+  outline: none;
+  text-decoration: underline;
+  color: #006699;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+blockquote {
+  margin: 2em 0;
+  padding: 1em 2em 0 2em;
+  border: 1px solid #E5E5DB;
+  background: #FFF;
+}
+
+ul {
+  margin: 0.5em 0 1em 2em;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 0 0 0.25em 0;
+  padding: 0 0 0.25em 0.5em;
+  line-height: 1.5em;
+}
+
+ol {
+  margin: 0.1em 0 2em 2em;
+}
+
+ol li {
+  margin: 0 0 0.5em 0;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.left {
+  float: left;
+  width: auto;
+  margin-right: 1em;
+}
+
+.right {
+  float: right;
+  width: auto;
+  margin-left: 1em;
+}
+
+.center {
+  display: block;
+  text-align: center;
+  margin: 2em auto;
+}
+
+#header_container {
+    background: #1D1D1D url(../images/pattern.png) repeat;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5)  3px 3px 5px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
+	box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px;
+}
+
+.transparent {
+    background: transparent url(../images/transparent.png) repeat;
+	padding: 0.5em 0.5em 1.5em 1em;
+	border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border: 7px 7px 7px 7px;
+}
+
+#header h1 a {
+  font: normal 150% 'News Cycle', arial, sans-serif;
+  border-bottom: 0;
+  text-transform: none;
+  margin: 0;
+  color: #FFF;
+  text-decoration: none;
+}
+
+#header h2 {
+  font: normal 100% 'News Cycle', arial, sans-serif;
+  border-bottom: 0;
+  text-transform: none;
+  margin-top: -1em;
+  color: #FFF;
+}
+
+#header h1 a .header_colour {
+  color: #85BAC9;
+}
+
+#header a:hover .header_colour {
+  color: #FFF;
+}
+
+.button {
+	border-radius: 0.5em;
+	box-shadow: inset 0 0 0 2px rgba(255,255,255,0.5);
+	color: #85BAC9;
+	color: #fff;
+	display: inline-block;
+	text-decoration: none;
+}
+
+
+#main-nav ul {
+    font: normal 100% 'News Cycle', arial;
+	float: right;
+  display:block;
+  height: auto;
+	list-style: none;
+	margin-top: 1.5em;
+	padding-bottom: 0.5em;
+}
+
+#main-nav ul li {
+	display: inline-block;
+	margin: 0;
+	padding: 0.35em 0em 0.35em 0em;
+	border-radius: 0.5em;
+}
+
+#main-nav ul li a {
+	color: #fff;
+	padding: 0.5em 1em 0.75em 1em;
+}
+
+#main-nav ul li a.active, #main-nav ul li a:hover {
+	color: #fff;
+	text-decoration: none;
+    background: #2C6372;
+	border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border: 7px 7px 7px 7px;
+}
+
+#banner_wrapper {
+    padding: 0.5em 0em;
+	background: #FFF;
+	margin-bottom: 1em;
+}
+
+#banner {
+	color: #fff;
+	text-align: center;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5)  0px 3px 5px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
+}
+
+#site_content {
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+#sidebar {
+    margin-bottom: 2em;
+	text-shadow: 1px 1px #323232;
+	background: #2D2D2D;
+	padding: 1em 1em 1em 2em;
+	color: #FFF;
+	border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border: 7px 7px 7px 7px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5)  0px 3px 5px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
+}
+
+footer {
+  font: 100% 'Droid Sans', arial, sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+footer p {
+  line-height: 1.7em;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* A single menu */
+.dropotron {
+	background: #1D1D1D;
+	border-radius: 0.5em;
+	list-style: none;
+	margin: 0;
+	min-width: 10em;
+	padding: 0.75em 1em 0.75em 1em;
+}
+
+.dropotron > li {
+	border-top: solid 1px #555;
+	margin: 0;
+	padding: 0;
+}
+
+.dropotron > li:first-child {
+	border-top: 0;
+}
+
+.dropotron > li > a {
+	color: #FFF;
+	display: block;
+	padding: 0.5em 0 0.5em 0;
+	text-decoration: none;
+}
+
+.dropotron > li.active > a, .dropotron > li:hover > a {
+    color: #85BAC9;
+}
+
+/* Only applies to top level ("level-0") menus */
+.dropotron.level-0 {
+	margin-top: 1.25em;
+}
+
+.dropotron.level-0:before {
+	content: '';
+	position: absolute;
+	border-bottom: solid 0.5em #444;
+	border-left: solid 0.5em transparent;
+	border-right: solid 0.5em transparent;
+	top: -0.5em;
+}
+
+nav select {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  nav ul     { display: none; }
+  nav select { display: inline-block;}
+}
+
+.form_settings {
+	margin: 1em 0 0 0;
+}
+
+.form_settings p {
+	padding: 0 0 0.25em 0;
+}
+
+.form_settings span {
+	float: left;
+	width: 22em;
+	text-align: left;
+}
+
+.form_settings input, .form_settings textarea {
+	padding: 0.25em;
+	width: 20em;
+	font: 100% arial;
+	margin-bottom: 1em;
+	border: 1px solid #bbb;
+	color: #47433F;
+}
+
+.form_settings input[type="checkbox"] {
+	padding: 0;
+	width: 1em;
+	font: 100% arial;
+	border: 0;
+	color: #47433F;
+}
+
+.form_settings .submit {
+	font-family: 'Source Sans Pro';
+	font-weight: 700;
+	border: 1px solid;
+	width: 6em;
+	margin: 0 0 0 14em;
+	height: 2em;
+	cursor: pointer;
+	background: #85BAC9;
+	border-radius: 5px;
+	color: #FFF;
+}
+
+.form_settings .submit:hover {
+	background: #2BB1E0;
+}
+
+table {
+  margin: 1em 0 3em 0;
+}
+
+table tr th, table tr td {
+  background: #FFF;
+  color: #1d1d1d;
+  padding: 0.75em 0.5em;
+  text-align: left;
+}
+
+table tr td {
+  background: #FFF;
+  color: #1d1d1d;
+  /*border-top: 1px solid #EEE;*/
+}
+
+strong, b {
+    font-weight: bold;
+}
