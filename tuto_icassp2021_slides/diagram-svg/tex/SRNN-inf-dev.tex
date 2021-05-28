@@ -1,0 +1,25 @@
+\begin{tikzpicture}[->]
+    \node[latent] (zm) {$\myz[t-1]$};
+    \node[latent,right=of zm, xshift=0.5mm] (z) {$\myz[t]$};
+    \node[latent,right=of z, xshift=1mm] (zp) {$\myz[t+1]$};
+    \node[det,below=of zm, yshift=3.5mm] (am) {$\mygbw[t-1]$};
+    \node[det,right=of am, xshift=-3.5mm] (a) {$\mygbw[t]$};
+    \node[det,right=of a,xshift=-3mm] (ap) {$\mygbw[t+1]$};
+    \node[det,below=of am, yshift=3.5mm] (hm) {$\myh[t-1]$};
+    \node[det,right=of hm, xshift=-1.5mm] (h) {$\myh[t]$};
+    \node[det,right=of h,xshift=-1.5mm] (hp) {$\myh[t+1]$};
+    \node[obs,below=of hm, yshift=4mm] (xm) {$\myx[t-1]$};
+    \node[obs,right=of xm, xshift=0.5mm] (x) {$\myx[t]$};
+    \node[obs,right=of x, xshift=1mm] (xp) {$\myx[t+1]$};
+    \edge{zm,a} {z};
+    \edge{z,ap} {zp};
+    \edge{hm,xm} {h};
+    \edge{h,x} {hp};
+    \edge{ap,h} {a};
+    \edge{a,hm} {am};
+    \edge{hp} {ap};
+    \edge{am} {zm};
+    \path (xm) edge[bend right] (am);
+    \path (x) edge[bend right] (a);
+    \path (xp) edge[bend right] (ap);
+\end{tikzpicture}

@@ -1,0 +1,17 @@
+\begin{tikzpicture}[->]
+    \node[latent] (zm) {$\myz[t-1]$};
+    \node[latent,right=of zm] (z) {$\myz[t]$};
+    \node[latent,right=of z] (zp) {$\myz[t+1]$};
+    \node[obs,below=of zm] (xm) {$\myx[t-1]$};
+    \node[obs,right=of xm] (x) {$\myx[t]$};
+    \node[obs,right=of x] (xp) {$\myx[t+1]$};
+    \edge {zm} {z};
+    \edge{z} {zp};
+    \edge{x} {zp,z};
+    \edge{xm} {z,zp,zm};
+    \edge{xp} {zp};
+    \path (zm) edge[bend left] (zp);
+    \path (x) edge[color=goldenpoppy] (zm);
+    \path (xp) edge[color=goldenpoppy] (zm);
+    \path (xp) edge[color=goldenpoppy] (z);
+\end{tikzpicture}

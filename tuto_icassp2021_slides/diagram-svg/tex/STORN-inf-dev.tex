@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+        \node[latent] (zm) {$\myz[t-1]$};
+        \node[latent,right=of zm] (z) {$\myz[t]$};
+        \node[latent,right=of z] (zp) {$\myz[t+1]$};
+        \node[det,below=of zm, yshift=3mm] (hm) {$\myg[t-1]$};
+        \node[det,right=of hm, xshift=-1mm] (h) {$\myg[t]$};
+        \node[det,right=of h,xshift=-1.5mm] (hp) {$\myg[t+1]$};
+        \node[obs,below=of hm, yshift=3mm] (xm) {$\myx[t-1]$};
+        \node[obs,right=of xm] (x) {$\myx[t]$};
+        \node[obs,right=of x] (xp) {$\myx[t+1]$};
+        \edge{hm} {zm};
+        \edge{h} {z};
+        \edge{hp} {zp};
+        \edge{xm} {hm};
+        \edge{x,hm} {h};
+        \edge{xp,h} {hp};
+    \end{tikzpicture}

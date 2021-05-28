@@ -1,0 +1,29 @@
+\begin{tikzpicture}[->]
+        \node[latent] (zm) {$\myz[t-1]$};
+        \node[latent,right=of zm, xshift=1mm] (z) {$\myz[t]$};
+        \node[latent,right=of z, xshift=1.5mm] (zp) {$\myz[t+1]$};
+        \node[det,below=of zm, yshift=3mm] (hmfw) {$\myhfw[t-1]$};
+        \node[det,right=of hmfw, xshift=-3.5mm] (hfw) {$\myhfw[t]$};
+        \node[det,right=of hfw, xshift=-3.5mm] (hpfw) {$\myhfw[t+1]$};
+        \node[det,below=of hmfw, yshift=4mm] (hmbw) {$\myhbw[t-1]$};
+        \node[det,right=of hmbw, xshift=-3mm] (hbw) {$\myhbw[t]$};
+        \node[det,right=of hbw, xshift=-3.5mm] (hpbw) {$\myhbw[t+1]$};
+        \node[obs,below=of hmbw, yshift=3mm] (xm) {$\myx[t-1]$};
+        \node[obs,right=of xm, xshift=2mm] (x) {$\myx[t]$};
+        \node[obs,right=of x, xshift=1mm] (xp) {$\myx[t+1]$};
+        \edge {zm} {hmfw};
+        \edge {hmfw} {hfw};
+        \edge{z} {hfw};
+        \path (hfw) edge[bend right] (x);
+        \path (hmfw) edge[bend right] (xm);
+        \edge{hfw,zp} {hpfw};
+        \path (hpfw) edge[bend right] (xp);
+        \edge{hpbw} {hbw};
+        \edge{hbw} {hmbw};
+        \path (zm) edge[bend left] (hmbw);
+        \path (z) edge[bend left] (hbw);
+        \path (zp) edge[bend left] (hpbw);
+        \edge{hmbw} {xm};
+        \edge{hbw} {x};
+        \edge{hpbw} {xp};
+    \end{tikzpicture}

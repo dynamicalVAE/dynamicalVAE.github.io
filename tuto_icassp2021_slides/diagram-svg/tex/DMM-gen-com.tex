@@ -1,0 +1,13 @@
+\begin{tikzpicture}[->]
+    \node[latent] (um) {$\myz[t-1]$};
+    \node[latent,right=of um] (u) {$\myz[t]$};
+    \node[latent,right=of u] (up) {$\myz[t+1]$};
+    \node[obs,below=of um, yshift=3.5mm] (xm) {$\myx[t-1]$};
+    \node[obs,right=of xm] (x) {$\myx[t]$};
+    \node[obs,right=of x] (xp) {$\myx[t+1]$};
+    \edge {um} {u};
+    \edge {u} {up};
+    \edge{um} {xm};
+    \edge{u} {x};
+    \edge{up} {xp};
+\end{tikzpicture}

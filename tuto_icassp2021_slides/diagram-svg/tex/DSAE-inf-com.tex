@@ -1,0 +1,36 @@
+\begin{tikzpicture}[->]
+    \node[latent] (zm) {$\myz[t-1]$};
+    \node[latent,right=of zm] (z) {$\myz[t]$};
+    \node[latent,right=of z] (zp) {$\myz[t+1]$};
+    \node[obs,below=of zm, yshift=-8mm] (xm) {$\myx[t-1]$};
+    \node[obs,right=of xm] (x) {$\myx[t]$};
+    \node[obs,right=of x] (xp) {$\myx[t+1]$};
+    \node[latent,left=of zm, yshift=-13mm, xshift=3mm] (v) {$\myv$};
+    \edge {xm} {zm};
+    \edge{x} {z};
+    \path(x) edge[color=silver] (zp);
+    \edge{x} {zm};
+    \edge{xp} {zp};
+    \edge{xp} {z};
+    \path(xm) edge[color=silver] (z);
+    \path(xm) edge[color=silver] (zp);
+    \edge{xp} {zm};
+    % \edge{zm} {z};
+    % \edge{z} {zp};
+    % \path (zm) edge[bend left] (zp);
+%    \path (v) edge[bend right] (zm);
+%    \path (v) edge[bend right] (z);
+%    \path (v) edge[bend right] (zp);
+%    \path (xm) edge[bend right] (v);
+%    \path (x) edge[bend right] (v);
+%    \path (xp) edge[bend right] (v);
+    \edge{xm} {v};
+    \edge{x} {v};
+    \edge{xp} {v};    
+    \edge{v} {zm};
+    \edge{v} {z};
+    \edge{v} {zp};
+    \path (zm) edge[color=goldenpoppy] (z);
+    \path (z) edge[color=goldenpoppy] (zp);
+    \path (zm) edge[color=goldenpoppy,bend left=30] (zp);
+\end{tikzpicture}

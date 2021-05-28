@@ -1,0 +1,23 @@
+\begin{tikzpicture}[->]
+    \node[latent] (zm) {$\myz[t-1]$};
+    \node[latent,right=of zm, xshift=-3mm] (z) {$\myz[t]$};
+    \node[latent,right=of z, xshift=-3mm] (zp) {$\myz[t+1]$};
+    \node[det,below=of zm, yshift=2.5mm] (hm) {$\myh[t-1]$};
+    \node[det,right=of hm, xshift=-4.5mm] (h) {$\myh[t]$};
+    \node[det,right=of h, xshift=-5mm] (hp) {$\myh[t+1]$};
+    \node[obs,below=of hm, yshift=2.5mm] (xm) {$\myx[t-1]$};
+    \node[obs,right=of xm, xshift=-2mm] (x) {$\myx[t]$};
+    \node[obs,right=of x, xshift=-3mm] (xp) {$\myx[t+1]$};
+    \node[latent,left=of hm,yshift=-9mm, xshift=7mm] (v) {$\myv$};
+    \edge {hm} {zm};
+    \edge{hm,zm} {h};
+    \edge{h} {z};
+    \edge{h,z} {hp};
+    \edge{hp} {zp};
+    \path (v) edge[bend left] (xm);
+    \path (v) edge[bend left] (x);
+    \path (v) edge[bend left] (xp);
+    \path (zm) edge[bend left] (xm);
+    \path (z) edge[bend left] (x);
+    \path (zp) edge[bend left] (xp);
+\end{tikzpicture}

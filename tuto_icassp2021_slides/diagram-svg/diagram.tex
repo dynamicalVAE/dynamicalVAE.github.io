@@ -1,0 +1,26 @@
+\begin{tikzpicture}[->]
+    \node[latent] (um) {$\myu[t-1]$};
+    \node[latent,right=of um] (u) {$\myu[t]$};
+    \node[latent,right=of u] (up) {$\myu[t+1]$};
+    \node[latent,below=of um, yshift=4mm] (zm) {$\myz[t-1]$};
+    \node[latent,right=of zm] (z) {$\myz[t]$};
+    \node[latent,right=of z] (zp) {$\myz[t+1]$};
+    \node[latent,below=of zm, yshift=4mm] (am) {$\mya[t-1]$};
+    \node[latent,right=of am] (a) {$\mya[t]$};
+    \node[latent,right=of a] (ap) {$\mya[t+1]$};
+   \node[obs,below=of am, yshift=4mm] (xm) {$\myx[t-1]$};
+    \node[obs,right=of xm] (x) {$\myx[t]$};
+    \node[obs,right=of x] (xp) {$\myx[t+1]$};
+    \edge {um} {zm};
+    \edge{u} {z};
+    \edge{up} {zp};
+    \edge{am} {zm};
+    \edge{a} {z};
+    \edge{ap} {zp};
+    \edge{am} {zm};
+    \edge{zm} {z};
+    \edge{z} {zp};
+    \edge[blue] {xm} {am};
+    \edge[blue]{x} {a};
+    \edge[blue]{xp} {ap};
+\end{tikzpicture}

@@ -1,0 +1,94 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\bsym}[1]{\boldsymbol{#1}}
+\newcommand{\diff}[1]{\textrm{d}#1}
+\newcommand{\inp}{\textrm{\footnotesize in}}
+\newcommand{\lat}{\textrm{\footnotesize lat}}
+\newcommand{\hid}{\textrm{\footnotesize hid}}
+\newcommand{\rec}{\textrm{\footnotesize rec}}
+\newcommand{\out}{\textrm{\footnotesize out}}
+\newcommand{\enc}{\textrm{\footnotesize enc}}
+\newcommand{\fw}{\textrm{\footnotesize fw}}
+\newcommand{\bw}{\textrm{\footnotesize bw}}
+\newcommand{\diag}{\textrm{diag}}
+
+\definecolor{dgreen}{RGB}{0,128,0}
+\definecolor{dblue}{RGB}{0,0,128}
+\definecolor{dred}{RGB}{128,0,0}
+\definecolor{dpurple}{RGB}{128,0,128}
+
+% X - green
+\newcommand*{\myx}[1][]{{\color{dgreen}\vect{x}_{#1}}}
+\newcommand*{\myxh}[1][]{{\color{dgreen}\hat{\vect{x}}_{#1}}}
+\newcommand*{\myxn}[1][]{{\color{dgreen}\vect{x}_{#1}^{(n)}}}
+\newcommand*{\myxN}[1][]{{\color{dgreen}\vect{x}_{#1}^{(1:N)}}}
+\newcommand*{\myX}[1][]{{\color{dgreen}\vect{X}_{#1}}}
+\newcommand*{\myxntr}[1][]{{\color{dgreen}\vect{x}_{#1}^{{\rm tr},n}}}
+% Z - red
+\newcommand*{\myz}[1][]{{\color{dred}\vect{z}_{#1}}}
+\newcommand*{\myzr}[1][]{{\color{dred}\vect{z}_{#1}^{(r)}}}
+\newcommand*{\myzn}[1][]{{\color{dred}\vect{z}_{#1}^{(n)}}}
+\newcommand*{\myzN}[1][]{{\color{dred}\vect{z}_{#1}^{(1:N)}}}
+\newcommand*{\myZ}[1][]{{\color{dred}\vect{Z}_{#1}}}
+
+% H - blue
+\newcommand*{\myh}[1][]{{\color{dblue}\vect{h}_{#1}}}
+\newcommand*{\myhfw}[1][]{{\color{dblue}\overrightarrow{\vect{h}}_{#1}}}
+\newcommand*{\myhbw}[1][]{{\color{dblue}\overleftarrow{\vect{h}}_{#1}}}
+\newcommand*{\myhn}[1][]{{\color{dblue}\vect{h}_{#1}^{(n)}}}
+\newcommand*{\myhN}[1][]{{\color{dblue}\vect{h}_{#1}^{(1:N)}}}
+
+% K - blue
+\newcommand*{\myk}[1][]{{\color{dblue}\vect{k}_{#1}}}
+
+% G - blue
+\newcommand*{\myg}[1][]{{\color{dblue}\vect{g}_{#1}}}
+\newcommand*{\mygfw}[1][]{{\color{dblue}\overrightarrow{\vect{g}}_{#1}}}
+\newcommand*{\mygbw}[1][]{{\color{dblue}\overleftarrow{\vect{g}}_{#1}}}
+\newcommand*{\mygfwz}[1][]{{\color{dblue}\overrightarrow{\vect{g}}_{#1}^{\mathbf{z}}}}
+\newcommand*{\mygbwz}[1][]{{\color{dblue}\overleftarrow{\vect{g}}_{#1}^{\mathbf{z}}}}
+\newcommand*{\mygfwx}[1][]{{\color{dblue}\overrightarrow{\vect{g}}_{#1}^{\mathbf{x}}}}
+\newcommand*{\mygbwx}[1][]{{\color{dblue}\overleftarrow{\vect{g}}_{#1}^{\mathbf{x}}}}
+\newcommand*{\mygfwv}[1][]{{\color{dblue}\overrightarrow{\vect{g}}_{#1}^{\mathbf{v}}}}
+\newcommand*{\mygbwv}[1][]{{\color{dblue}\overleftarrow{\vect{g}}_{#1}^{\mathbf{v}}}}
+\newcommand*{\mygn}[1][]{{\color{dblue}\vect{g}_{#1}^{(n)}}}
+\newcommand*{\mygN}[1][]{{\color{dblue}\vect{g}_{#1}^{(1:N)}}}
+\newcommand*{\mygvn}[1][]{{\color{dblue}\vect{g}_{#1}^{\mathbf{v},(n)}}}
+\newcommand*{\mygzn}[1][]{{\color{dblue}\vect{g}_{#1}^{\mathbf{z},(n)}}}
+\newcommand*{\mygv}[1][]{{\color{dblue}\vect{g}_{#1}^{\mathbf{v}}}}
+\newcommand*{\mygz}[1][]{{\color{dblue}\vect{g}_{#1}^{\mathbf{z}}}}
+
+% a - blue
+\newcommand*{\mya}[1][]{{\color{dblue}\vect{a}_{#1}}}
+\newcommand*{\myames}[1][]{{\color{dblue}\tilde{\vect{a}}_{#1}}}
+
+% U - purple
+\newcommand*{\myu}[1][]{{\color{dpurple}\vect{u}_{#1}}}
+
+% V W - red
+\newcommand*{\myv}[1][]{{\color{dred}\vect{v}_{#1}}}
+\newcommand*{\myvr}[1][]{{\color{dred}\vect{v}_{#1}^{(r)}}}
+\newcommand*{\myw}[1][]{{\color{dred}\vect{w}_{#1}}}
+\newcommand*{\myvn}[1][]{{\color{dred}\vect{v}_{#1}^{(n)}}}
+\newcommand*{\mywn}[1][]{{\color{dred}\vect{w}_{#1}^{(n)}}}
+\newcommand*{\myvN}[1][]{{\color{dred}\vect{v}_{#1}^{(1:N)}}}
+
+\tikzset{  net/.style={draw,trapezium,trapezium angle=65,shape border rotate=270} }
+\tikzset{  rnn/.style={draw,rectangle} }
+
+\definecolor{goldenpoppy}{rgb}{0.99, 0.76, 0.0}
+\definecolor{silver}{rgb}{0.75, 0.75, 0.75}
+
+\usetikzlibrary{fit,positioning,bayesnet}
+
+
+\begin{document}
+\input{diagram.tex}
+\end{document}

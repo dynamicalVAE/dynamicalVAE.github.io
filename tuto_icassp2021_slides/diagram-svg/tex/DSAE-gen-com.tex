@@ -1,0 +1,16 @@
+\begin{tikzpicture}[->]
+    \node[latent] (zm) {$\myz[t-1]$};
+    \node[latent,right=of zm, xshift=-3mm] (z) {$\myz[t]$};
+    \node[latent,right=of z, xshift=-3mm] (zp) {$\myz[t+1]$};
+    \node[obs,below=of zm, yshift=1mm] (xm) {$\myx[t-1]$};
+    \node[obs,right=of xm, xshift=-3mm] (x) {$\myx[t]$};
+    \node[obs,right=of x, xshift=-3mm] (xp) {$\myx[t+1]$};
+    \node[latent,left=of zm,yshift=-9mm, xshift=5mm] (v) {$\myv$};
+    \edge {zm} {xm,z};
+    \edge{z} {x,zp};
+    \edge{zp} {xp};
+    \path (zm) edge[bend left] (zp);
+    \path (v) edge[bend left] (xm);
+    \path (v) edge[bend left] (x);
+    \path (v) edge[bend left] (xp);
+\end{tikzpicture}

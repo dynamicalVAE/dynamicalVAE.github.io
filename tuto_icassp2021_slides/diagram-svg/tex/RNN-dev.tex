@@ -1,0 +1,17 @@
+\begin{tikzpicture}[->]
+    \node[obs] (um) {$\vect{i}_{t-1}$};
+    \node[obs,right=of um] (u) {$\vect{i}_{t}$};
+    \node[obs,right=of u] (up) {$\vect{i}_{t+1}$};
+    \node[det,below=of um, yshift=3.5mm] (hm) {$\myh[t-1]$};
+    \node[det,right=of hm,xshift=-2mm] (h) {$\myh[t]$};
+    \node[det,right=of h,xshift=-2.5mm] (hp) {$\myh[t+1]$};
+    \node[obs,below=of hm, yshift=3.5mm] (xm) {$\vect{o}_{t-1}$};
+    \node[obs,right=of xm] (x) {$\vect{o}_{t}$};
+    \node[obs,right=of x] (xp) {$\vect{o}_{t+1}$};
+    \edge {um} {hm};
+    \edge {hm} {xm,h};
+    \edge{u} {h};
+    \edge{h} {x,hp};
+    \edge{up} {hp};
+    \edge{hp} {xp};
+\end{tikzpicture}

@@ -1,0 +1,19 @@
+\begin{tikzpicture}[->]
+    \node[latent] (um) {$\myz[t-1]$};
+    \node[latent,right=of um] (u) {$\myz[t]$};
+    \node[latent,right=of u] (up) {$\myz[t+1]$};
+    \node[det,below=of um, yshift=3.5mm] (hm) {$\mygbw[t-1]$};
+    \node[det,right=of hm,xshift=-4mm] (h) {$\mygbw[t]$};
+    \node[det,right=of h,xshift=-4mm] (hp) {$\mygbw[t+1]$};
+    \node[obs,below=of hm, yshift=3.5mm] (xm) {$\myx[t-1]$};
+    \node[obs,right=of xm] (x) {$\myx[t]$};
+    \node[obs,right=of x] (xp) {$\myx[t+1]$};
+    \edge {u} {um};
+    \edge {up} {u};
+    \edge {hm} {um};
+    \edge{h} {hm,u};
+    \edge{hp} {h,up};
+    \edge{xm} {hm};
+    \edge{x} {h};
+    \edge{xp} {hp};
+\end{tikzpicture}
