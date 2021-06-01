@@ -1,142 +1,228 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
+<head>
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109046767-2"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109046767-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-		  gtag('config', 'UA-109046767-2');
-		</script>
+gtag('config', 'UA-109046767-2');
+</script>
 
-		<title>Dynamical Variational Autoencoders</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600|Source+Code+Pro" rel="stylesheet" />
-		<!--[if lte IE 8]><script src="html5shiv.js" type="text/javascript"></script><![endif]-->
-		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/skel.min.js">
-		{
-			prefix: 'css/style',
-			preloadStyleSheets: true,
-			resetCSS: true,
-			boxModel: 'border',
-			grid: { gutters: 30 },
-			breakpoints: {
-				wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
-				narrow: { range: '481-1199', containers: 960 },
-				mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
-			}
-		}
-		</script>
-		<script>
-			$(function() {
+<title>Dynamical Variational Autoencoders</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600|Source+Code+Pro" rel="stylesheet" />
+<!--[if lte IE 8]><script src="html5shiv.js" type="text/javascript"></script><![endif]-->
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="js/jquery.dropotron.min.js"></script>
+<script src="js/skel.min.js">
+{
+prefix: 'css/style',
+preloadStyleSheets: true,
+resetCSS: true,
+boxModel: 'border',
+grid: { gutters: 30 },
+breakpoints: {
+wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+narrow: { range: '481-1199', containers: 960 },
+mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
+}
+}
+</script>
+<script>
+$(function() {
 
-				// Note: make sure you call dropotron on the top level <ul>
-				$('#main-nav > ul').dropotron({
-					offsetY: -10 // Nudge up submenus by 10px to account for padding
-				});
+// Note: make sure you call dropotron on the top level <ul>
+$('#main-nav > ul').dropotron({
+offsetY: -10 // Nudge up submenus by 10px to account for padding
+});
 
-			});
-		</script>
-		<script>
-			// DOM ready
-			$(function() {
+});
+</script>
+<script>
+// DOM ready
+$(function() {
 
-			// Create the dropdown base
-			$("<select />").appendTo("nav");
+// Create the dropdown base
+$("<select />").appendTo("nav");
 
-			// Create default option "Go to..."
-			$("<option />", {
-				"selected": "selected",
-				"value"   : "",
-				"text"    : "Menu"
-			}).appendTo("nav select");
+// Create default option "Go to..."
+$("<option />", {
+"selected": "selected",
+"value"   : "",
+"text"    : "Menu"
+}).appendTo("nav select");
 
-			// Populate dropdown with menu items
-			$("nav a").each(function() {
-			var el = $(this);
-			$("<option />", {
-				"value"   : el.attr("href"),
-				"text"    : el.text()
-			}).appendTo("nav select");
-			});
+// Populate dropdown with menu items
+$("nav a").each(function() {
+var el = $(this);
+$("<option />", {
+"value"   : el.attr("href"),
+"text"    : el.text()
+}).appendTo("nav select");
+});
 
-			// To make dropdown actually work
-			// To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
-			$("nav select").change(function() {
-				window.location = $(this).find("option:selected").val();
-			});
+// To make dropdown actually work
+// To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
+$("nav select").change(function() {
+window.location = $(this).find("option:selected").val();
+});
 
-			});
-		</script>
-		<style>
-			table tr th, table tr td {
-			text-align: center;
-			vertical-align: middle;
-			border: 0px solid white;
-			border-collapse: collapse;
-			}
-		</style>
-		<style type="text/css">a {text-decoration: none}</style>
-	</head>
-	<body>
-			<div id="site_content">
-			<div class="container">
+});
+</script>
+<style>
+table tr th, table tr td {
+text-align: center;
+vertical-align: middle;
+border: 0px solid white;
+border-collapse: collapse;
+}
+</style>
+<style type="text/css">a {text-decoration: none}</style>
+</head>
+<body>
+<div id="site_content">
+<div class="container">
 
-			<!-- Features -->
-				<div class="row">
-					<section class="12u">
+<!-- Features -->
+<div class="row">
+<section class="12u">
 
-							<h2 style="text-align: center; font-size: 200%;">Dynamical Variational Autoencoders</h2>
-							<p style="text-align: center;">
-								<a href="#paper">Paper</a> |
-								<a href="#tutorial">Tutorial</a> |
-								<a href="#ressources">Ressources</a> |
-								<a href="#acknowledgement">Acknowledgement</a>
-							</p>
+		<h2 style="text-align: center; font-size: 200%;">Deep generative modeling of sequential data with dynamical variational autoencoders</h2>
+		<p style="text-align: center;">Simon Leglaive<sup>1</sup>&emsp;&emsp; Xavier Alameda-Pineda<sup>2</sup>&emsp;&emsp; Laurent Girin<sup>2,3</sup>&emsp;&emsp;</p>
+		<p style="text-align: center;"><sup>1</sup>CentraleSupélec, IETR, France &emsp;&emsp; <sup>2</sup>Inria, Univ. Grenoble Alpes, CNRS, LJK, France &emsp;&emsp; <sup>3</sup>Univ. Grenoble Alpes, CNRS, Grenoble-INP, GIPSA-lab, France
+		</p>
+		<p style="text-align: center;">Tutorial at 2021 IEEE International Conference on Acoustics Speech and Signal Processing (ICASSP)</p>
+		<p style="text-align: center;">
+			<a href="#paper">Paper</a> |
+			<a href="#slides">Slides</a> |
+			<a href="#code">Code</a>
+			<!--- <a href="#acknowledgement">Acknowledgement</a> -->
+		</p>
 
-							
-							<!-- Abstract -->
-							<strong><span style="font-size: large;"><a name="abstract"></a>Abstract</span></strong>
-							<hr>
-							<table width="100%">
-							<tr>
-							<td style="width: 50%; text-align: justify; vertical-align: top;">
-								The abstract.
-							<td style="width: 5%; text-align: justify;"></td>
-							<td style="width: 30%; text-align: left;"><img class="wp-image-7444 aligncenter" src="demos/icassp2020/illustration.svg" alt="" width="200" /></a></td>
-							</tr>
-							</table>
+		<!-- Abstract -->
+		<strong><span style="font-size: large;"><a name="abstract"></a>Abstract</span></strong>
+		<hr>
 
-							<!-- Paper -->
-							<strong><span style="font-size: large;"><a name="paper"></a>Paper</span></strong>
-							<hr>
+		<table width="100%">
+		<tr>
+		<td style="width: 60%; text-align: justify; vertical-align: top;">
+			Dynamical variational autoencoders (DVAEs) combine standard variational autoencoders (VAEs) with a temporal model, in order to achieve unsupervised representation learning for sequential data. The temporal model is typically coming from the combination of traditional state-space models (SSMs) with feed-forward neural networks, or from the use of recurrent neural networks (RNNs). DVAEs can be used to process sequential data at large, leveraging the efficient training methodology of standard variational autoencoders (VAEs). The objective of this tutorial is to provide a comprehensive analysis of the DVAE-based methods that were proposed in the literature to model the dynamics between latent and observed sequential data. We will discuss the limitations of well known models (VAEs, RNNs, SSMs), the challenges of extending linear dynamical models to deep dynamical ones, and the various models that have been proposed in the machine learning and signal processing literature. Importantly we will show that we can encompass these models in a general unifying framework, from which each of the above-mentioned models can be seen as a particular instance. We will also demonstrate the use of DVAEs on real-world data, in particular for generative modeling of speech signals. </td>
+		<td style="width: 5%; text-align: justify;"></td>
+		<td style="width: 20%; text-align: left;"><img class="wp-image-7444 aligncenter" src="data/VRNN-gen.svg" alt="" width="250" /></a></td> 
+		</tr>
+		</table>
 
-							<!-- Tutorial -->
-							<strong><span style="font-size: large;"><a name="tutorial"></a>Tutorial</span></strong>
-							<hr>
-							
-							<p>
-							<a href="tuto_icassp2021/DVAE_tutorial.html">Slides</a>
-							</p>
-							
+		<!-- Paper -->
+		<strong><span style="font-size: large;"><a name="paper"></a>Paper</span></strong>
+		<hr>
 
-							<!-- Ressources -->
-							<strong><span style="font-size: large;"><a name="ressources"></a>Ressources</span></strong>
-							<hr>
+		<p>
+		This tutorial is built from the following overview paper:
+		<br>
+		<br>
+		<a href="https://arxiv.org/pdf/2008.12595.pdf">Dynamical variational autoencoders: A comprehensive review</a>
+		<br>
+		Laurent Girin, Simon Leglaive, Xiaoyu Bie, Julien Diard, Thomas Hueber, Xavier Alameda-Pineda
+		<br>
+		<span class="italic">arXiv preprint arXiv:2008.12595</span>, 2020
+		<br>
+		<br>
+		</p>
+			
+			
+		
+		<!-- Slides -->
+		<strong><span style="font-size: large;"><a name="slides"></a>Slides</span></strong>
+		<hr>
+		
+		
 
-							<!-- Acknowledgement -->
-							<strong><span style="font-size: large;"><a name="acknowledgement"></a>Acknowledgement</span></strong>
-								
-					
-					</section>
-				</div>
-			</div>
-        </div>
+		<p>
+		You can access to the slides of this tutorial <a href="tuto_icassp2021/DVAE_tutorial.html">here</a>.
+		</p>
 
-	</body>
+		<iframe
+		width="800"
+		height="450"
+		src="tuto_icassp2021/DVAE_tutorial.html">
+		</iframe>
+
+		<br>
+
+		<!-- Code -->
+		<strong><span style="font-size: large;"><a name="code"></a>Code</span></strong>
+		<hr>
+
+		<p>
+		We provide in this <a href="https://github.com/XiaoyuBIE1994/DVAE-speech">Github repository</a> a PyTorch implementation of the following DVAE models, along with the training/testing recipes for analysis-resynthesis of speech signals, using the <a href="https://catalog.ldc.upenn.edu/LDC93S6B">Wall Street Journal</a> dataset.
+		</p>
+		<p>
+		You can play with the trained models on speech signals using this <a href="https://colab.research.google.com/drive/1LU1IALbZyfRB8oFb7J3DVATSxvDtg8v4?usp=sharing">Google Colab notebook</a>.
+		</p>
+
+		<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;}
+			.tg td{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+			  overflow:hidden;padding:10px 5px;word-break:normal;}
+			.tg th{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+			  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+			.tg .tg-6sy5{color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;font-size:12px;
+			  text-align:left;vertical-align:top}
+			.tg .tg-z3ar{color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;font-size:12px;
+			  text-align:left;vertical-align:middle}
+			.tg .tg-8zch{background-color:#FCFCFC;color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;
+			  font-size:12px;text-align:left;vertical-align:top}
+			.tg .tg-szbj{background-color:#FCFCFC;color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;
+			  font-size:12px;text-align:left;vertical-align:middle}
+			</style>
+			<table class="tg">
+			<thead>
+			  <tr>
+				<th class="tg-8zch">STORN</th>
+				<th class="tg-szbj">J. Bayer and C. Osendorfer, <a href="https://arxiv.org/pdf/1411.7610.pdf"><span style="text-decoration:none;color:blue">Learning Stochastic Recurrent Networks</span></a>, arXiv:1411.7610, 2014</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td class="tg-6sy5">VRNN</td>
+				<td class="tg-z3ar">J. Chung et al., <a href="https://papers.nips.cc/paper/5653-a-recurrent-latent-variable-model-for-sequential-data.pdf"><span style="text-decoration:none;color:blue">A recurrent latent variable model for sequential data</span></a>, NeurIPS 2015</td>
+			  </tr>
+			  <tr>
+				<td class="tg-8zch">SRNN</td>
+				<td class="tg-szbj">M. Fraccaro et al., <a href="https://papers.nips.cc/paper/6039-sequential-neural-models-with-stochastic-layers.pdf"><span style="text-decoration:none;color:blue">Sequential neural models with stochastic layers</span></a>, NeurIPS 2016</td>
+			  </tr>
+			  <tr>
+				<td class="tg-6sy5">DMM</td>
+				<td class="tg-z3ar">R. Krishnan et al., <a href="http://arxiv.org/pdf/1609.09869.pdf"><span style="text-decoration:none;color:blue">Structured inference networks for nonlinear state space models</span></a>, AAAI 2017</td>
+			  </tr>
+			  <tr>
+				<td class="tg-6sy5">KVAE</td>
+				<td class="tg-z3ar">M. Fraccaro et al., <a href="https://arxiv.org/pdf/1710.05741.pdf"><span style="text-decoration:none;color:blue">A disentangled recognition and nonlinear dynamics model for unsupervised learning</span></a>, NeurIPS, 2017</td>
+			  </tr>
+			  <tr>
+				<td class="tg-8zch">DSAE</td>
+				<td class="tg-szbj">Y. Li and S Mandt, <a href="https://arxiv.org/pdf/1803.02991"><span style="text-decoration:none;color:blue">Disentangled sequential autoencoder</span></a>, ICML 2018</td>
+			  </tr>
+			  <tr>
+				<td class="tg-6sy5">RVAE</td>
+				<td class="tg-z3ar">S. Leglaive et al., <a href="https://hal.archives-ouvertes.fr/hal-02329000/document"><span style="text-decoration:none;color:blue">A recurrent variational autoencoder for speech enhancement</span></a>, IEEE ICASSP 2020</td>
+			  </tr>
+			</tbody>
+			</table>
+			
+
+		<!-- Acknowledgement 
+		<strong><span style="font-size: large;"><a name="acknowledgement"></a>Acknowledgement</span></strong>
+		-->
+
+</section>
+</div>
+</div>
+</div>
+
+</body>
 </html>
