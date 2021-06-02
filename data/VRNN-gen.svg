@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -45,7 +45,7 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="1.8622954"
-     inkscape:cx="18.879628"
+     inkscape:cx="-76.432856"
      inkscape:cy="135.47287"
      inkscape:window-x="0"
      inkscape:window-y="34"
@@ -846,14 +846,12 @@
        x="-0.0625"
        y="232.70883"
        style="font-size:8px;line-height:1.20000005;stroke-width:0.75"
-       id="tspan1275">VRNN <tspan
-   style="font-size:6px"
-   id="tspan1281">(Chung et al., 2015)</tspan> in compact (top) and </tspan><tspan
+       id="tspan1275">VRNN (Chung et al., 2015) in compact (top)</tspan><tspan
        sodipodi:role="line"
        x="-0.0625"
        y="242.30882"
        style="font-size:8px;line-height:1.20000005;stroke-width:0.75"
-       id="tspan1283">developed (bottom) forms.</tspan></text>
+       id="tspan1283">and developed (bottom) forms.</tspan></text>
   <g
      id="surface1-5"
      transform="translate(15.989612,92.046614)">
