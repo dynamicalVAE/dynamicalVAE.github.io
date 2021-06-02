@@ -121,7 +121,7 @@ border-collapse: collapse;
 		<hr>
 
 		<p>
-		This tutorial is built from the following overview paper:
+		This tutorial is built from the following review paper:
 		<br>
 		<br>
 		<a href="https://arxiv.org/pdf/2008.12595.pdf">Dynamical variational autoencoders: A comprehensive review</a>
@@ -133,7 +133,67 @@ border-collapse: collapse;
 		<br>
 		</p>
 			
+		<p>
+			In this paper we perform an extensive literature review of extensions of the VAE that have been proposed to process sequential data. 
+			We also introduce and discuss a general class of models called Dynamical VAEs (DVAEs) that encompasses a large subset of these temporal VAE extensions. 
+			Then we present in detail seven different instances of the DVAE (see the table below) that were recently proposed in the literature, with an effort to homogenize the notations and presentation lines, 
+			as well as to relate these models with existing classical temporal models.  We reimplemented those seven DVAE models and we present the results of an experimental benchmark conducted on a speech analysis-resynthesis task (the PyTorch code is made publicly available).
+
+			<style type="text/css">
+				.tg  {border-collapse:collapse;border-spacing:0;}
+				.tg td{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+				  overflow:hidden;padding:10px 5px;word-break:normal;}
+				.tg th{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+				  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+				.tg .tg-6sy5{color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;font-size:12px;
+				  text-align:left;vertical-align:top}
+				.tg .tg-z3ar{color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;font-size:12px;
+				  text-align:left;vertical-align:middle}
+				.tg .tg-8zch{background-color:#FCFCFC;color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;
+				  font-size:12px;text-align:left;vertical-align:top}
+				.tg .tg-szbj{background-color:#FCFCFC;color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;
+				  font-size:12px;text-align:left;vertical-align:middle}
+				</style>
+				<table class="tg">
+				<thead>
+				  <tr>
+					<th class="tg-8zch">STORN</th>
+					<th class="tg-szbj">J. Bayer and C. Osendorfer, <a href="https://arxiv.org/pdf/1411.7610.pdf"><span style="text-decoration:none;color:blue">Learning Stochastic Recurrent Networks</span></a>, arXiv:1411.7610, 2014</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					<td class="tg-6sy5">VRNN</td>
+					<td class="tg-z3ar">J. Chung et al., <a href="https://papers.nips.cc/paper/5653-a-recurrent-latent-variable-model-for-sequential-data.pdf"><span style="text-decoration:none;color:blue">A recurrent latent variable model for sequential data</span></a>, NeurIPS 2015</td>
+				  </tr>
+				  <tr>
+					<td class="tg-8zch">SRNN</td>
+					<td class="tg-szbj">M. Fraccaro et al., <a href="https://papers.nips.cc/paper/6039-sequential-neural-models-with-stochastic-layers.pdf"><span style="text-decoration:none;color:blue">Sequential neural models with stochastic layers</span></a>, NeurIPS 2016</td>
+				  </tr>
+				  <tr>
+					<td class="tg-6sy5">DMM</td>
+					<td class="tg-z3ar">R. Krishnan et al., <a href="http://arxiv.org/pdf/1609.09869.pdf"><span style="text-decoration:none;color:blue">Structured inference networks for nonlinear state space models</span></a>, AAAI 2017</td>
+				  </tr>
+				  <tr>
+					<td class="tg-6sy5">KVAE</td>
+					<td class="tg-z3ar">M. Fraccaro et al., <a href="https://arxiv.org/pdf/1710.05741.pdf"><span style="text-decoration:none;color:blue">A disentangled recognition and nonlinear dynamics model for unsupervised learning</span></a>, NeurIPS, 2017</td>
+				  </tr>
+				  <tr>
+					<td class="tg-8zch">DSAE</td>
+					<td class="tg-szbj">Y. Li and S Mandt, <a href="https://arxiv.org/pdf/1803.02991"><span style="text-decoration:none;color:blue">Disentangled sequential autoencoder</span></a>, ICML 2018</td>
+				  </tr>
+				  <tr>
+					<td class="tg-6sy5">RVAE</td>
+					<td class="tg-z3ar">S. Leglaive et al., <a href="https://hal.archives-ouvertes.fr/hal-02329000/document"><span style="text-decoration:none;color:blue">A recurrent variational autoencoder for speech enhancement</span></a>, IEEE ICASSP 2020</td>
+				  </tr>
+				</tbody>
+				</table>
 			
+			
+			
+			
+		
+		</p>
 		
 		<!-- Slides -->
 		<strong><span style="font-size: large;"><a name="slides"></a>Slides</span></strong>
@@ -158,61 +218,13 @@ border-collapse: collapse;
 		<hr>
 
 		<p>
-		We provide in this <a href="https://github.com/XiaoyuBIE1994/DVAE-speech">Github repository</a> a PyTorch implementation of 7 DVAE models listed below, along with training/testing recipes for analysis-resynthesis of speech signals using the <a href="https://catalog.ldc.upenn.edu/LDC93S6B">Wall Street Journal</a> dataset.
+		We provide in this <a href="https://github.com/XiaoyuBIE1994/DVAE-speech">Github repository</a> a PyTorch implementation of above-listed DVAE models, along with training/testing recipes for analysis-resynthesis of speech signals using the <a href="https://catalog.ldc.upenn.edu/LDC93S6B">Wall Street Journal</a> dataset.
 		</p>
 		<p>
 		You can test already trained DVAE models on analysis-resynthesis of speech signals using this <a href="https://colab.research.google.com/drive/1LU1IALbZyfRB8oFb7J3DVATSxvDtg8v4?usp=sharing">Google Colab notebook</a>.
 		</p>
 
-		<style type="text/css">
-			.tg  {border-collapse:collapse;border-spacing:0;}
-			.tg td{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
-			  overflow:hidden;padding:10px 5px;word-break:normal;}
-			.tg th{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
-			  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-			.tg .tg-6sy5{color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;font-size:12px;
-			  text-align:left;vertical-align:top}
-			.tg .tg-z3ar{color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;font-size:12px;
-			  text-align:left;vertical-align:middle}
-			.tg .tg-8zch{background-color:#FCFCFC;color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;
-			  font-size:12px;text-align:left;vertical-align:top}
-			.tg .tg-szbj{background-color:#FCFCFC;color:#354046;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;
-			  font-size:12px;text-align:left;vertical-align:middle}
-			</style>
-			<table class="tg">
-			<thead>
-			  <tr>
-				<th class="tg-8zch">STORN</th>
-				<th class="tg-szbj">J. Bayer and C. Osendorfer, <a href="https://arxiv.org/pdf/1411.7610.pdf"><span style="text-decoration:none;color:blue">Learning Stochastic Recurrent Networks</span></a>, arXiv:1411.7610, 2014</th>
-			  </tr>
-			</thead>
-			<tbody>
-			  <tr>
-				<td class="tg-6sy5">VRNN</td>
-				<td class="tg-z3ar">J. Chung et al., <a href="https://papers.nips.cc/paper/5653-a-recurrent-latent-variable-model-for-sequential-data.pdf"><span style="text-decoration:none;color:blue">A recurrent latent variable model for sequential data</span></a>, NeurIPS 2015</td>
-			  </tr>
-			  <tr>
-				<td class="tg-8zch">SRNN</td>
-				<td class="tg-szbj">M. Fraccaro et al., <a href="https://papers.nips.cc/paper/6039-sequential-neural-models-with-stochastic-layers.pdf"><span style="text-decoration:none;color:blue">Sequential neural models with stochastic layers</span></a>, NeurIPS 2016</td>
-			  </tr>
-			  <tr>
-				<td class="tg-6sy5">DMM</td>
-				<td class="tg-z3ar">R. Krishnan et al., <a href="http://arxiv.org/pdf/1609.09869.pdf"><span style="text-decoration:none;color:blue">Structured inference networks for nonlinear state space models</span></a>, AAAI 2017</td>
-			  </tr>
-			  <tr>
-				<td class="tg-6sy5">KVAE</td>
-				<td class="tg-z3ar">M. Fraccaro et al., <a href="https://arxiv.org/pdf/1710.05741.pdf"><span style="text-decoration:none;color:blue">A disentangled recognition and nonlinear dynamics model for unsupervised learning</span></a>, NeurIPS, 2017</td>
-			  </tr>
-			  <tr>
-				<td class="tg-8zch">DSAE</td>
-				<td class="tg-szbj">Y. Li and S Mandt, <a href="https://arxiv.org/pdf/1803.02991"><span style="text-decoration:none;color:blue">Disentangled sequential autoencoder</span></a>, ICML 2018</td>
-			  </tr>
-			  <tr>
-				<td class="tg-6sy5">RVAE</td>
-				<td class="tg-z3ar">S. Leglaive et al., <a href="https://hal.archives-ouvertes.fr/hal-02329000/document"><span style="text-decoration:none;color:blue">A recurrent variational autoencoder for speech enhancement</span></a>, IEEE ICASSP 2020</td>
-			  </tr>
-			</tbody>
-			</table>
+		
 			
 
 		<!-- Acknowledgement 
