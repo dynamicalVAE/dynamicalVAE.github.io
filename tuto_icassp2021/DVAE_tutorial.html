@@ -562,11 +562,11 @@ $$ p\_\theta(\mathbf{x}) = \int p\_\theta(\mathbf{x} | \mathbf{z}) p(\mathbf{z})
 
 - For any distribution $q\_\phi(\mathbf{z} | \mathbf{x})$, we have .small[(Neal and Hinton, 1999; Jordan et al. 1999)]
 
-  $$ \ln p(\mathbf{x}; \theta) = \mathcal{L}(\mathbf{x}; \phi, \theta) + D\_{\text{KL}}(q\_\phi(\mathbf{z} | \mathbf{x}) \parallel p\_\theta(\mathbf{z} | \mathbf{x})),$$
+  $$ \ln p\_\theta(\mathbf{x}) = \mathcal{L}(\mathbf{x}; \phi, \theta) + D\_{\text{KL}}(q\_\phi(\mathbf{z} | \mathbf{x}) \parallel p\_\theta(\mathbf{z} | \mathbf{x})),$$
 
   where $\mathcal{L}(\mathbf{x}; \phi, \theta)$ is the **evidence lower bound** (ELBO), aka **variational lower bound** (VLB), defined by
 
-  $$ \mathcal{L}(\mathbf{x}; \phi, \theta) = \mathbb{E}\_{q\_\phi(\mathbf{z} | \mathbf{x})} [\ln p(\mathbf{x}, \mathbf{z}; \theta) - \ln q\_\phi(\mathbf{z} | \mathbf{x})]. $$
+  $$ \mathcal{L}(\mathbf{x}; \phi, \theta) = \mathbb{E}\_{q\_\phi(\mathbf{z} | \mathbf{x})} [\ln p\_\theta(\mathbf{x}, \mathbf{z}) - \ln q\_\phi(\mathbf{z} | \mathbf{x})]. $$
 
 .credit[
   
@@ -584,7 +584,7 @@ count: false
 .bold[Problem #1]
 
 $$ \underset{\theta}{\max}\, \mathcal{L}(\mathbf{x}; \phi, \theta),$$
-where $\mathcal{L}(\mathbf{x}; \phi, \theta) \le \ln p(\mathbf{x}; \theta)$
+where $\mathcal{L}(\mathbf{x}; \phi, \theta) \le \ln p\_\theta(\mathbf{x})$
 
 ]
 
@@ -608,7 +608,7 @@ $$ \Leftrightarrow  \underset{\phi}{\min}\, D\_{\text{KL}}(q\_\phi(\mathbf{z} | 
 ---
 class: center, middle
 
-To fully define the objective function, we need to specify the **inference model** $q\_\phi(\mathbf{z} | \mathbf{x}) \approx p\_\theta(\mathbf{z} | \mathbf{x})$. 
+To fully define the objective function, we need to specify the **inference model** $q\_\phi(\mathbf{z} | \mathbf{x}) \approx  p\_\theta(\mathbf{z} | \mathbf{x})$. 
 
 ---
 class: middle, title-slide
@@ -660,7 +660,7 @@ The ELBO is now fully defined:
 
 $$
   \begin{aligned}
-  \mathcal{L}(\mathbf{x}; \phi, \theta) &= \mathbb{E}\_{q\_\phi(\mathbf{z} | \mathbf{x})} [\ln p(\mathbf{x}, \mathbf{z}; \theta) - \ln q\_\phi(\mathbf{z} | \mathbf{x})] \\\\
+  \mathcal{L}(\mathbf{x}; \phi, \theta) &= \mathbb{E}\_{q\_\phi(\mathbf{z} | \mathbf{x})} [\ln p\_\theta(\mathbf{x}, \mathbf{z}) - \ln q\_\phi(\mathbf{z} | \mathbf{x})] \\\\
   &= \underbrace{\mathbb{E}\_{q\_\phi(\mathbf{z} | \mathbf{x})} [\ln p\_\theta(\mathbf{x} | \mathbf{z})]}\_{\text{reconstruction accuracy}} - \underbrace{D\_{\text{KL}}(q\_\phi(\mathbf{z} | \mathbf{x}) \parallel p(\mathbf{z}))}\_{\text{regularization}}.
   \end{aligned}
 $$  
@@ -701,7 +701,7 @@ The ELBO is now fully defined:
 
 $$
   \begin{aligned}
-  \mathcal{L}(\mathbf{x}; \phi, \theta) &= \mathbb{E}\_{q\_\phi(\mathbf{z} | \mathbf{x})} [\ln p(\mathbf{x}, \mathbf{z}; \theta) - \ln q\_\phi(\mathbf{z} | \mathbf{x})] \\\\
+  \mathcal{L}(\mathbf{x}; \phi, \theta) &= \mathbb{E}\_{q\_\phi(\mathbf{z} | \mathbf{x})} [\ln p\_\theta(\mathbf{x}, \mathbf{z}) - \ln q\_\phi(\mathbf{z} | \mathbf{x})] \\\\
   &= \underbrace{\mathbb{E}\_{q\_\phi(\mathbf{z} | \mathbf{x})} [\ln p\_\theta(\mathbf{x} | \mathbf{z})]}\_{\text{reconstruction accuracy}} - \underbrace{D\_{\text{KL}}(q\_\phi(\mathbf{z} | \mathbf{x}) \parallel p(\mathbf{z}))}\_{\text{regularization}}.
   \end{aligned}
 $$  
@@ -2213,8 +2213,8 @@ $$p\_{\theta}(\myx{1:T}, \myz{1:T}) = \prod\_{t=1}^{T} p\_{\mythetax}(\myx{t} | 
 
 where
 
-- $ p\_{\mythetax}(\myx{t} | \myx{1:t-1},\myz{t}) = \mathcal{N}\big(\myz{t};\boldsymbol{\mu}\_{\mythetaz}(\myz{t}, \myh{t}),\text{diag}\\{\mathbf{v}\_{\mythetaz}(\myz{t}, \myh{t})\\}\big)$
-- $ p\_{\mythetaz}(\myz{t} | \myz{t-1},\myx{1:t-1}) = \mathcal{N}\big(\myx{t};\boldsymbol{\mu}\_{\mythetax}(\myz{t-1},\myh{t}),\text{diag}\\{\mathbf{v}\_{\mythetax}(\myz{t-1},\myh{t})\\}\big)$
+- $ p\_{\mythetax}(\myx{t} | \myx{1:t-1},\myz{t}) = \mathcal{N}\big(\myx{t};\boldsymbol{\mu}\_{\mythetax}(\myz{t}, \myh{t}),\text{diag}\\{\mathbf{v}\_{\mythetax}(\myz{t}, \myh{t})\\}\big)$
+- $ p\_{\mythetaz}(\myz{t} | \myz{t-1},\myx{1:t-1}) = \mathcal{N}\big(\myz{t};\boldsymbol{\mu}\_{\mythetaz}(\myz{t-1},\myh{t}),\text{diag}\\{\mathbf{v}\_{\mythetaz}(\myz{t-1},\myh{t})\\}\big)$
 
 Implemented with a **single RNN** with an internal state 
 
@@ -2261,7 +2261,7 @@ This inference model **follows the structure of the exact posterior distribution
 .center.width-90[![](diagram-svg/svg/SRNN-inf-com.svg)]
 
 .center.width-90[![](diagram-svg/svg/SRNN-inf-dev.svg)]
-.caption[VRNN inference model.]
+.caption[SRNN inference model.]
 
 ]
 ]
