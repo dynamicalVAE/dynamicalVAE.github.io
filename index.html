@@ -156,7 +156,7 @@ border-collapse: collapse;
 			In this paper we perform an extensive literature review of extensions of the VAE to process sequential data. 
 			We also introduce and discuss a general class of models called Dynamical VAEs (DVAEs) that encompasses a large subset of these temporal VAE extensions. 
 			Then we present in detail seven different instances of the DVAE (see the table below) that were recently proposed in the literature, with an effort to homogenize the notations and presentation lines, 
-			as well as to relate these models with existing classical temporal models.  We reimplemented those seven DVAE models and we present the results of an experimental benchmark conducted on a speech analysis-resynthesis task (the PyTorch code is made publicly available).
+			as well as to relate these models with existing classical temporal models.  We reimplemented these seven DVAE models and we present the results of an experimental benchmark conducted on a speech and human motion data analysis-resynthesis task (the PyTorch code is made publicly available).
 
 			<style type="text/css">
 				.tg  {border-collapse:collapse;border-spacing:0;}
@@ -206,7 +206,6 @@ border-collapse: collapse;
 					<td class="tg-z3ar">S. Leglaive et al., <a href="https://hal.archives-ouvertes.fr/hal-02329000/document"><span style="text-decoration:none;color:blue">A recurrent variational autoencoder for speech enhancement</span></a>, IEEE ICASSP 2020</td>
 				  </tr>
 				</tbody>
-				<caption>The seven DVAE models that are discussed in the review paper (Girin et al., 2020).</caption>
 				</table>
 			
 			
@@ -220,7 +219,7 @@ border-collapse: collapse;
 		<hr>
 
 		<p>
-		We provide in this <a href="https://github.com/XiaoyuBIE1994/DVAE-speech">Github repository</a> a PyTorch implementation of above-listed DVAE models, along with training/testing recipes for analysis-resynthesis of speech signals using the <a href="https://catalog.ldc.upenn.edu/LDC93S6B">Wall Street Journal</a> dataset.
+		We provide in this <a href="https://github.com/XiaoyuBIE1994/DVAE-speech">Github repository</a> a PyTorch implementation of above-listed DVAE models, along with training/testing recipes for analysis-resynthesis of speech signals and human motion data.
 		</p>
 		<p>
 		You can test already trained DVAE models on analysis-resynthesis of speech signals using this <a href="https://colab.research.google.com/drive/1LU1IALbZyfRB8oFb7J3DVATSxvDtg8v4?usp=sharing">Google Colab notebook</a>.
